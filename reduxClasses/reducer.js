@@ -23,9 +23,7 @@ export const reducer = (state = initialState, action) => {
     case types.REMOVE_COMPLETED_ITEMS:
       return {
         ...state,
-        todos: state.todos.filter((todo) => {
-          return todo.isCompleted = false
-        }),
+        todos: state.todos.filter((todo) => todo.isCompleted === false),
       };
       break;
     default:
