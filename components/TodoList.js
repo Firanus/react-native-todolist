@@ -7,7 +7,7 @@ export default class TodoList extends Component {
 
   renderItem = ({item}) => {
     return (
-      <Text>
+      <Text style={styles.row}>
         {item.title}
       </Text>
     )
@@ -31,7 +31,9 @@ export default class TodoList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 10,
     marginBottom: 70,
+    marginHorizontal: 15,
   },
   row: {
     paddingTop: 10,
