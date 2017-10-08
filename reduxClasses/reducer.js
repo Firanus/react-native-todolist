@@ -1,7 +1,7 @@
 import {types} from './actions'
 
 const initialState = {
-  todos: [ {title: 'defaultItem', isCompleted: false} ]
+  todos: [ {id: 0, title: 'defaultItem', isCompleted: false} ]
 };
 
 export const reducer = (state = initialState, action) => {
@@ -12,7 +12,13 @@ export const reducer = (state = initialState, action) => {
     case types.ADD_ITEM:
       return {
         ...state,
-        todos: [{title: payload, isCompleted: false}, ...state.todos],
+        todos: [
+          {
+            id: state.todos.reduce((maxId, elem) => elem.id > maxId ? elem.id : maxId) + 1,
+            title: payload,
+            isCompleted: false
+          },
+          ...state.todos],
       };
     case types.REMOVE_COMPLETED_ITEMS:
       return {
