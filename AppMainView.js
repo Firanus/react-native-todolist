@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
 import Title from './components/Title';
 import FooterButton from './components/FooterButton';
 import TodoInput from './components/TodoInput'
+import TodoList from './components/TodoList'
 
 import { connect } from 'react-redux'
 import { actionCreators } from './reduxClasses/actions'
@@ -13,30 +14,26 @@ const mapStateToProps = (state) => ({
 
 export class AppMainView extends React.Component {
   render() {
+    const {todos, addItem, removeCompletedItems} = this.props;
+
     return (
         <View style={styles.container}>
           <Title>Todo List App</Title>
-          <TodoInput placeholder="Add an item..." onSubmitEditing={this.addItem}/>
-          <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContainer}>
-            <Text>Shake your phone to open the developer menu.</Text>
-          </ScrollView>
-          <FooterButton buttonHandler={this.removeCompletedItems}>Remove completed items</FooterButton>
+          <TodoInput placeholder="Add an item..." onSubmitEditing={addItem}/>
+          <TodoList todos={todos}/>
+          <FooterButton buttonHandler={removeCompletedItems}>Remove completed items</FooterButton>
         </View>
     );
   }
-
-  removeCompletedItems() {
-    const {dispatch} = this.props;
-    dispatch(actionCreators.removeCompleted())
-  }
-
-  addItem(item) {
-    const {dispatch} = this.props;
-    dispatch(actionCreators.add(item));
-  }
 }
 
-export default connect(mapStateToProps)(AppMainView);
+export default connect(
+  mapStateToProps,
+  dispatch => ({
+    addItem: item => dispatch(actionCreators.add(item)),
+    removeCompletedItems: () => dispatch(actionCreators.removeCompleted()),
+  })
+)(AppMainView);
 
 const styles = StyleSheet.create({
   container: {
