@@ -25,11 +25,13 @@ export default class TodoInput extends Component {
 
   render() {
     const { placeholder } = this.props;
+    const { text } = this.state;
 
     return (
       <TextInput style={styles.textInput}
                  placeholder={ placeholder }
                  underlineColorAndroid="transparent"
+                 value={text}
                  onSubmitEditing={this.onSubmitEditing}
                  onChangeText={this.onChangeText}/>
     )
