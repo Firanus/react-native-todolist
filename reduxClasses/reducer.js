@@ -14,7 +14,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         todos: [
           {
-            id: state.todos.reduce((maxId, elem) => elem.id > maxId ? elem.id : maxId) + 1,
+            id: state.todos.reduce((maxId, elem) => elem.id > maxId ? elem.id : maxId, 0) + 1,
             title: payload,
             isCompleted: false
           },
