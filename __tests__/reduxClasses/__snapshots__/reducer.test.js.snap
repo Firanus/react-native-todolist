@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The reducer Adds an item 1`] = `
+Object {
+  "todos": Array [
+    Object {
+      "id": 1,
+      "isCompleted": false,
+      "title": "My Added Todo",
+    },
+    Object {
+      "id": 0,
+      "isCompleted": false,
+      "title": "Default Item",
+    },
+  ],
+}
+`;
+
+exports[`The reducer Removes completed items 1`] = `
+Object {
+  "todos": Array [
+    Object {
+      "id": 0,
+      "isCompleted": false,
+      "title": "Default Item",
+    },
+  ],
+}
+`;
