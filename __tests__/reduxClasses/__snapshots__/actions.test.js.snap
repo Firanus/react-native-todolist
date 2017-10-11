@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action types are correct 1`] = `
+Object {
+  "ADD_ITEM": "ADD_ITEM",
+  "REMOVE_COMPLETED_ITEMS": "REMOVE_COMPLETED_ITEMS",
+  "REMOVE_ITEM": "REMOVE_ITEM",
+  "TOGGLE_COMPLETED": "TOGGLE_COMPLETED",
+}
+`;
+
+exports[`The actionCreators object creates a removeCompleted action 1`] = `
+Object {
+  "type": "REMOVE_COMPLETED_ITEMS",
+}
+`;
+
+exports[`The actionCreators object creates an add action 1`] = `
+Object {
+  "payload": "My Test Task",
+  "type": "ADD_ITEM",
+}
+`;

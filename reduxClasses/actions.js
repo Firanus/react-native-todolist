@@ -6,8 +6,8 @@ export const types = {
 };
 
 export const actionCreators = {
-  add: (item) => {
-    return {type: types.ADD_ITEM, payload: item}
+  add: (itemTitle) => {
+    return {type: types.ADD_ITEM, payload: itemTitle}
   },
   removeCompleted: () => {
     return {type: types.REMOVE_COMPLETED_ITEMS}
